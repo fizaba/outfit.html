@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noor Contemporary Clothing</title>
+  <style>
+    :root {
+      --green-darkest: #134e4a;
+      --green-dark: #0e7c60;
+      --green-main: #43af7b;
+      --green-light: #8fe6b7;
+      --green-lightest: #d8f3e5;
+      --green-accent: #00ffb4;
+      --white: #fafafa;
+      --card-shadow: 0 16px 48px 0 rgba(19, 78, 74, 0.2);
+      --card-shadow-hover: 0 24px 64px 0 rgba(67, 175, 123, 0.24);
+      --anim-float: float 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(-16px);
+      }
+    }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(
+        130deg,
+        var(--green-darkest) 0%,
+        var(--green-dark) 35%,
+        var(--green-main) 65%,
+        var(--green-light) 90%,
+        var(--green-lightest) 100%
+      );
+      color: var(--white);
+      font-family: "Montserrat", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    header {
+      background: radial-gradient(
+        circle at 60% 40%,
+        var(--green-accent) 0%,
+        var(--green-main) 50%,
+        var(--green-darkest) 100%
+      );
+      padding: 2.7rem 0 1.2rem 0;
+      text-align: center;
+      border-radius: 0 0 2.5rem 2.5rem;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      animation: fadeInUp 0.9s cubic-bezier(0.27, 0.65, 0.31, 1.23);
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin: 0;
+      color: var(--green-lightest);
+      text-shadow: 2px 4px 32px var(--green-darkest);
+      animation: float 3s ease-in-out infinite alternate;
+    }
+    nav {
+      margin: 1.3rem auto 0 auto;
+      display: flex;
+      gap: 2.3rem;
+      justify-content: center;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 2;
+    }
+    nav a {
+      color: var(--green-accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.25s;
+      padding: 0.3rem 1.2rem;
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 1px 9px #43af7b33;
+    }
+    nav a:hover {
+      color: var(--green-light);
+      background: rgba(0, 255, 180, 0.19);
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin: 3rem auto;
+      max-width: 1200px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      color: var(--white);
+      border-radius: 1.5rem;
+      box-shadow: var(--card-shadow);
+      padding: 2.1rem 2rem 2rem 2rem;
+      min-width: 280px;
+      max-width: 360px;
+      margin: 0.3rem;
+      animation: fadeInUp 0.8s cubic-bezier(0.21, 0.72, 0.5, 1.13);
+      will-change: transform;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card.floating {
+      animation: fadeInUp 0.8s cubic-bezier(0.21, 0.72, 0.5, 1.13),
+        float 2.4s ease-in-out infinite alternate;
+      border: 1.5px solid var(--green-light);
+    }
+    .card:hover {
+      transform: translateY(-16px) scale(1.03) rotate(-0.4deg);
+      box-shadow: var(--card-shadow-hover);
+    }
+    .card h2 {
+      color: var(--green-accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.3rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .card p,
+    .card ul {
+      font-size: 1.08rem;
+      color: var(--green-lightest);
+      flex-grow: 1;
+    }
+    .product-image {
+      width: 100%;
+      height: 240px;
+      border-radius: 1.1rem;
+      object-fit: cover;
+      background: linear-gradient(150deg, var(--green-lightest), var(--green-main));
+      margin-bottom: 1.2rem;
+      box-shadow: 0 6px 16px #43af7b55;
+      animation: float 2.8s ease-in-out infinite alternate;
+    }
+    .price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--green-accent);
+      margin-top: 1rem;
+    }
+    footer {
+      background: rgba(19, 78, 74, 0.93);
+      color: var(--green-lightest);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      border-radius: 2rem 2rem 0 0;
+      margin-top: 2.7rem;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    @media (max-width: 600px) {
+      .card,
+      main {
+        min-width: unset;
+        width: 92vw;
+      }
+      section {
+        padding: 1.1rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Noor</h1>
+    <nav>
+      <a href="#about">About Us</a>
+      <a href="#products">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <div class="card floating" id="about">
+      <h2>About Noor</h2>
+      <p>
+        Noor is a contemporary clothing brand where elegant tradition and future-focused design unite. Each collection reflects a passion for innovation, quality,
+        and style—crafted for those who dare to stand out and express themselves.
+      </p>
+      <ul>
+        <li>Modern silhouettes, rich fabrics</li>
+        <li>Chic ready-to-wear and occasion pieces</li>
+        <li>Inspired by global trends, rooted in culture</li>
+      </ul>
+    </div>
+
+    <div class="card" id="products">
+      <h2>Featured Products</h2>
+
+      <div>
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=500&q=80"
+          alt="Elegant Green Dress"
+        />
+        <p>Elegant Green Evening Dress with Flowing Silhouette</p>
+        <div class="price">$199</div>
+      </div>
+
+      <div style="margin-top: 1.8rem;">
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=500&q=80"
+          alt="Modern Classic White Shirt with Hijab"
+        />
+        <p>Classic White Shirt with Tailored Fit for Every Occasion, modeled elegantly with a hijab</p>
+        <div class="price">$89</div>
+      </div>
+
+      <div style="margin-top: 1.8rem;">
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1498075702571-ecb018f3752d?auto=format&fit=crop&w=500&q=80"
+          alt="Stylish Layered Jacket"
+        />
+        <p>Stylish Layered Jacket with Modern Design Details</p>
+        <div class="price">$145</div>
+      </div>
+    </div>
+
+    <div class="card floating" id="contact">
+      <h2>Contact Us</h2>
+      <p>
+        For collaborations or to shop our latest drops:<br />
+        <strong>Email:</strong>
+        <a href="mailto:info@noor.com" style="color: var(--green-accent); text-decoration: underline;">info@noor.com</a>
+        <br />
+        <strong>Instagram:</strong> @noor
+        <br />
+        <strong>Based in Dubai, UAE</strong>
+      </p>
+    </div>
+  </main>
+  <footer>&copy; 2025 Noor. Crafted for brilliance.</footer>
+</body>
+</html>
+
+
+
